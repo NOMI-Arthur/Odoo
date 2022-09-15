@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <report
+        id="report_account"
+        model="matrix__telecoms__sms.compte"
+        string="compte client"
+        name="matrix__telecoms__sms.report_account_view"
+        file="matrix__telecoms__sms.report_account"
+        report_type="qweb-pdf" />
+
+
+
+    <template id="report_account_view">
+        <t t-call="report.html_container">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <center><h1 style="font-size: 3em;font-family:'Times New Roman', Times, serif;color:green;">Les comptes de MATRIX Télécoms</h1></center>
+                        <hr/>
+                        <div><span>We at Matrix Télécoms cater for clients and thier accounts</span> information, for the constitute the most confidential data we have. <b style="font-size: 1.2em;">NOMI Ph.D</b>, student of ISTAG</div>
+                        <hr/>
+                        <table style="font-size: 15px;border-radius:2px;border:2px solid green;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding:2px;margin: 5px;">
+                            <thead>
+                                <th>Client</th>
+                                <th>Type de compte</th>
+                                <th>Date de dernier mouvement</th>
+                                <th>Modifié par</th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="c">
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.proprietaire_id"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.typeCompte"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.write_date"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.write_uid"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <hr/>
+                        <div><span><b>Signature du responsable financier</b></span></div>
+                        <p>
+                            <div style="height:155px;width:165px;background-color:darkgray;box-shadow:2px 1px;border:2px dotted black;">Signez dans ce cadre</div>
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,34 @@
+<odoo>
+<data>
+    <report
+        id="report_session"
+        model="matrix__telecoms__sms.contract"
+        string="contract Report"
+        name="matrix__telecoms__sms.report_contract_view"
+        file="matrix__telecoms__sms.report_contract"
+        report_type="qweb-pdf" />
+
+    <template id="report_contract_view">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h3 style="font-size: 50px;">Renouvelement du contract avec les clients de <div style="color: green;">MATRIX télécoms</div></h3>
+                        <hr/>
+                        A Matrix Télécoms, chacun d'entre vous est un grand client. 
+                        <br/>
+                        Voila pourquoi renouveler un contract est pour une joie immense. <b style="font-size:1.5em;"> NOMI Ph.D</b>, Etudiant d'ISTAG
+                        <hr/>
+                        <div style="display: block;margin:100px;"><img src="img/matrix.png" alt="Le commercial de Matrix"  height="230" width="200"/><img src="img/nomi.jpg" alt="Le cleint" height="230" width="200"/></div>
+                        <ul>
+                                <li><span t-field="doc.nomClient_id" style="font-family: Century; font-size:20px;"/></li>
+                                <li><span t-field="doc.termes" style="font-family: Times New Roman; font-size:20px"/></li>
+                                <li><span t-field="doc.employeCocontractant_id" style="font-family: Century; font-size:20px"/></li>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</data>
+</odoo>

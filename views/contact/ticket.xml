@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="matrix__telecoms__matrix__telecoms__sms_ticket">
+      <field name="name">Liste de code</field>
+      <field name="model">matrix__telecoms__sms.ticket</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="proprietaire_id"/>
+          <field name="etat"/>
+          <!--
+          <field name="create_date "/>
+          <field name="create_uid "/>-->
+        </tree>
+      </field>
+    </record>
+
+    <!--Explicit form view definition-->
+
+        <record id="matrix__telecoms__sms_ticket_form" model="ir.ui.view">
+            <field name="name">matrix__telecoms__sms_ticket.form</field>
+            <field name="model">matrix__telecoms__sms.ticket</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <center>
+                            <h1>Matrix Télécoms et le Système partenaire Odoo</h1>
+                        </center>
+                    </header>
+                    <sheet>
+                        <field name="code"/>
+                        <field name="proprietaire_id"/>
+                        <field name="descriptionTicket"/>
+                        <field name="etat"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <!--End of view Explicit form view definition-->
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="matrix__telecoms__sms.action_ticket">
+      <field name="name">SMS Ticket action</field>
+      <field name="res_model">matrix__telecoms__sms.ticket</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="matrix__telecoms__sms.action_server">
+      <field name="name">Matrix_Telecoms_SMS server</field>
+      <field name="model_id" ref="model_matrix__telecoms__sms_matrix__telecoms__sms"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="Matrix_Telecoms_SMS" id="matrix__telecoms__sms.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="matrix__telecoms__sms.menu_1" parent="matrix__telecoms__sms.menu_root"/>
+    -->
+    <menuitem name="Vistes Technique et Interventions" id="matrix__telecoms__sms_ticket_menu" parent="main_sms_menu"/>
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="matrix__telecoms__sms.menu_1_list" parent="matrix__telecoms__sms.menu_1"
+              action="matrix__telecoms__sms.action_window"/>
+    -->
+    <menuitem name="Gestion des Tickets d'interventions" id="matrix__telecoms__sms_code_promo" parent="matrix__telecoms__sms_ticket_menu"
+              action="matrix__telecoms__sms.action_ticket"/>
+  </data>
+</odoo>

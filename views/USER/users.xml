@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+    <data>
+        <!-- Add instructor field to existing view -->
+        <record model="ir.ui.view" id="user_addition_form_view">
+            <field name="name">Users addition</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Sessions">
+                        <group>
+                            
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="user_list_action">
+            <field name="name">Users</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">kanban,form</field>
+        </record>
+        <menuitem id="users_menu" name="Utilisateur/Users"
+                  parent="main_sms_menu" sequence="1"/>
+        <menuitem id="user_form_menu" name="Espace des Utilisateurs"
+                  parent="users_menu"
+                  sequence="1"
+                  action="user_list_action"/>
+    </data>
+</odoo>

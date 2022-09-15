@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="matrix__telecoms__sms.compte_list">
+      <field name="name">Matrix_Telecoms_SMS compte</field>
+      <field name="model">matrix__telecoms__sms.compte</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="proprietaire_id"/>
+          <field name="typeCompte"/>
+          <field name="write_date"/>
+          <field name="write_uid"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="matrix__telecoms__sms_compte_view_form" model="ir.ui.view">
+        <field name="name">matrix__telecoms__sms.compte.view.form</field>
+        <field name="model">matrix__telecoms__sms.compte</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <header>
+                        <h1>Le <b style="color:green;">MATRIXIEN</b> || <i>Ouverture des comptes</i></h1>
+                    </header>
+                    <group>
+                        <field name="proprietaire_id"/>
+                        <field name="typeCompte"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="matrix__telecoms__sms.compte_action_window">
+      <field name="name">Matrix_Telecoms_SMS compte_window</field>
+      <field name="res_model">matrix__telecoms__sms.compte</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+  
+    <menuitem name="Ouverture des comptes" id="matrix__telecoms__sms_compte_openning" parent="matrix__telecoms__sms.finance"
+              action="matrix__telecoms__sms.compte_action_window" sequence="1"/>
+    
+  </data>
+</odoo>

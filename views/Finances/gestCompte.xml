@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="matrix__telecoms__sms.account_list">
+      <field name="name">Matrix_Telecoms_SMS account</field>
+      <field name="model">matrix__telecoms__sms.account</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="compte_ids"/>
+          <field name="montant"/>
+          <field name="mouvement"/>
+          <field name="write_date"/>
+          <field name="write_uid"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="matrix__telecoms__sms_account_view_form" model="ir.ui.view">
+        <field name="name">matrix__telecoms__sms.account.view.form</field>
+        <field name="model">matrix__telecoms__sms.account</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <header>
+                        <h1>Le <b style="color:green;">MATRIXIEN</b> || Comptes et Gestion financière</h1>
+                    </header>
+                    <group>
+                        <field name="compte_ids"/>
+                        <field name="montant"/>
+                        <field name="mouvement"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="matrix__telecoms__sms.account_action_window">
+      <field name="name">Matrix_Telecoms_SMS account_window</field>
+      <field name="res_model">matrix__telecoms__sms.account</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+
+    <menuitem name="Finance du Matrixien" id="matrix__telecoms__sms.finance" parent="main_sms_menu" sequence="4"/>
+    
+    <!-- actions -->
+  
+    <menuitem name="Mouvement financiers des comptes" id="matrix__telecoms__sms_account_movement" parent="matrix__telecoms__sms.finance"
+              action="matrix__telecoms__sms.account_action_window" sequence="2"/>
+    
+  </data>
+</odoo>

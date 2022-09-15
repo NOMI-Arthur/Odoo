@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <report
+        id="report_bond"
+        model="matrix__telecoms__sms.ticket"
+        string="Bond de Sorti"
+        name="matrix__telecoms__sms.report_bond_sorti"
+        file="matrix__telecoms__sms.report_bond"
+        report_type="qweb-pdf" />
+
+
+
+    <template id="report_bond_sorti">
+        <t t-call="report.html_container">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <center><h1 style="font-size: 3em;font-family:'Times New Roman', Times, serif;color:green;">Bon de sortie de Matériel</h1></center>
+                        <hr/>
+                        <div><span>Pour les techniciens sur le terrain! Le NOC vous prie</span> de ne pas manquer de rensuigner un matériel sortie. <b style="font-size: 1.2em;">NOMI Ph.D</b>, student of ISTAG</div>
+                        <hr/>
+                        <table style="font-size: 15px;border-radius:2px;border:2px solid green;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding:2px;margin: 5px;">
+                            <thead>
+                                <th>SN</th>
+                                <th>Designation</th>
+                                <th>Quantité</th>
+                                <th>Prix Unitaire</th>
+                                <th>Total pour ce matériel</th>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60">01</td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60">02</td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60">03</td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60">04</td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60">05</td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60">06</td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;padding:5px;" col="50" span="60"></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                        <div><p>
+                            <div style="height:45px;width:165px;background-color:darkgray;box-shadow:2px 1px;border:2px dotted black;">Marquez le total ici</div>
+                        </p></div>
+                        <hr/>
+                        <div><span><b>Signature du NOC</b></span></div>
+                        <p>
+                            <div style="height:75px;width:165px;background-color:darkgray;box-shadow:2px 1px;border:2px dotted black;">Signez dans ce cadre</div>
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

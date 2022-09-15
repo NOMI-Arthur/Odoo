@@ -1,0 +1,34 @@
+<odoo>
+<data>
+    <report
+        id="report_ticket"
+        model="matrix__telecoms__sms.ticket"
+        string="Ticket Report"
+        name="matrix__telecoms__sms.report_ticket_view"
+        file="matrix__telecoms__sms.report_ticket"
+        report_type="qweb-pdf" />
+
+    <template id="report_ticket_view">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h3 style="font-size: 50px;">Les Tickets d'intervention de <div style="color: green;">MATRIX télécoms</div></h3>
+                        <hr/>
+                        A Matrix Télécoms, chacun d'entre vous est un grand client. 
+                        <br/>
+                        Voila pourquoi résoudre vos problèmes (soucis quelconque) une équipe de techniciens dévoué est prête à intervenir. <b> NOMI Ph.D</b>, Etudiant d'ISTAG
+                        <hr/>
+                        <div style="display: block;margin:100px;"><img src="img/matrix.png" alt="Le Technicien de Matrix"  height="230" width="200"/><img src="img/nomi.jpg" alt="Le cleint" height="230" width="200"/></div>
+                        <ul>
+                                <li><span t-field="doc.code" style="font-family: Century; font-size:20px;"/></li>
+                                <li><span t-field="doc.descriptionTicket" style="font-family: Times New Roman; font-size:20px"/></li>
+                                <li><span t-field="doc.proprietaire_id" style="font-family: Century; font-size:20px"/></li>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</data>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <report
+        id="report_messagerie"
+        model="matrix__telecoms__sms.message"
+        string="Programme d'envoie des SMS"
+        name="matrix__telecoms__sms.report_messagerie_view"
+        file="matrix__telecoms__sms.report_messagerie"
+        report_type="qweb-pdf" />
+
+
+
+    <template id="report_messagerie_view">
+        <t t-call="report.html_container">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <center><h1 style="font-size: 3em;font-family:'Times New Roman', Times, serif;color:green;">Programmes détaillé d'envoie d'SMS au employés</h1></center>
+                        <hr/>
+                        <div><span>At MATRIX Télécoms we cater for employees acknowldgement </span> about each and every information. <b style="font-size: 1.2em;">NOMI Ph.D</b>, student of ISTAG</div>
+                        <hr/>
+                        <table style="font-size: 15px;border-radius:2px;border:2px solid green;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding:2px;margin: 5px;">
+                            <thead><b>
+                                <th style="color: green;font-size:1.5em;margin:2px;">Epéditeur</th>
+                                <th style="color: green;font-size:1.5em;margin:2px">Recepteur</th>
+                                <th style="color: green;font-size:1.5em;margin:2px">Phone</th>
+                                <th style="color: green;font-size:1.5em;margin:2px">Corps du message</th>
+                                <th style="color: green;font-size:1.5em;margin:2px">Date de programmation</th></b>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="c">
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.sender"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.receiver_user"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.receiver"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.message"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.write_date"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <hr/>
+                        <div><span><b>Signature de la DRH</b></span></div>
+                        <p>
+                            <div style="height:155px;width:165px;background-color:darkgray;box-shadow:2px 1px;border:2px dotted black;">Signez dans ce cadre</div>
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

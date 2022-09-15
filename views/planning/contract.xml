@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="matrix__telecoms__matrix__telecoms__sms_contract">
+      <field name="name">Liste de contract</field>
+      <field name="model">matrix__telecoms__sms.contract</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="nomClient_id"/>
+            <field name="employeCocontractant_id"/>
+            <field name="termes"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--Explicit form view definition-->
+
+        <record id="matrix__telecoms__sms_contract_form" model="ir.ui.view">
+            <field name="name">matrix__telecoms__sms_contract.form</field>
+            <field name="model">matrix__telecoms__sms.contract</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <center>
+                            <h1>Matrix Télécoms et les contracts Client-Marketeur</h1>
+                        </center>
+                    </header>
+                    <sheet>
+                        <field name="nomClient_id"/>
+                        <field name="employeCocontractant_id"/>
+                        <field name="termes"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <!--End of view Explicit form view definition-->
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="matrix__telecoms__sms.action_contract">
+      <field name="name">SMS contract action</field>
+      <field name="res_model">matrix__telecoms__sms.contract</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+   
+    <menuitem name="Rédiger le contract du client" id="matrix__telecoms__sms_contract" parent="calendar_menu_root"
+              action="matrix__telecoms__sms.action_contract" sequence="3"/>
+  </data>
+</odoo>

@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+
+    <!--Explicit calendar view for planning Matrix movements-->
+        <record id="matrix__telecoms__sms_planning_calendar" model="ir.ui.view">
+            <field name="name">matrix__telecoms__sms.planning.calendar</field>
+            <field name="model">matrix__telecoms__sms.planning</field>
+            <field name="arch" type="xml">
+                <calendar string="planifier" date_start="start_date" color="prospect_id" date_stop="end_date">
+                    <field name="nom"/>
+                </calendar>
+            </field>
+        </record>
+    <!--End of calendar view-->
+
+    <!--Actions-->
+        <record id="matrix__telecoms__sms_planning_action" model="ir.actions.act_window">
+            <field name="name">Matrix Télécoms Visites de prospection</field>
+            <field name="res_model">matrix__telecoms__sms.planning</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar</field>
+        </record>
+    <!--End of action-->
+    <menuitem
+        id="calendar_menu_root"
+        name="Planning des visites"
+        parent="main_sms_menu"
+        sequence="5"/>
+        <menuitem
+            id="marketing_calendar_menu"
+            name="Visites des commerciaux"
+            action="matrix__telecoms__sms_planning_action"
+            parent="calendar_menu_root"
+            sequence="1"/>
+    </data>
+</odoo>

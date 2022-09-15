@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <report
+        id="report_client"
+        model="res.partner"
+        string="Liste des clients"
+        name="matrix__telecoms__sms.report_client_view"
+        file="matrix__telecoms__sms.report_client"
+        report_type="qweb-pdf" />
+
+
+
+    <template id="report_client_view">
+        <t t-call="report.html_container">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <center><h1 style="font-size: 3em;font-family:'Times New Roman', Times, serif;color:green;">Information sur ces comptes de MATRIX Télécoms</h1></center>
+                        <hr/>
+                        <div><span>We at Matrix Télécoms cater for clients</span> information, for the constitute personal cleint privacy. <b style="font-size: 1.2em;">NOMI Ph.D</b>, student of ISTAG</div>
+                        <hr/>
+                        <table style="font-size: 15px;border-radius:2px;border:2px solid green;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding:2px;margin: 5px;">
+                            <thead>
+                                <th>Société</th>
+                                <th>Partenaire commercial</th>
+                                <th>Phone</th>
+                                <th>email</th>
+                                <th>ville</th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="c">
+                                    <tr>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.name"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.phone"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.email"/></td>
+                                        <td style="text-align:center;padding:2px;margin: 5px;"><t t-esc="c.city"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <hr/>
+                        <div><span><b>Signature du responsable Marketing</b></span></div>
+                        <p>
+                            <div style="height:155px;width:165px;background-color:darkgray;box-shadow:2px 1px;border:2px dotted black;">Signez dans ce cadre</div>
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

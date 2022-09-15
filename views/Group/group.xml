@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+    <data>
+        <!-- Add instructor field to existing view -->
+        <record model="ir.ui.view" id="group_form_view">
+            <field name="name">partner.information</field>
+            <field name="model">res.groups</field>
+            <field name="inherit_id" ref="base.view_groups_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Sessions">
+                        <group>
+                            
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="group_list_action">
+            <field name="name">Add/edit group</field>
+            <field name="res_model">res.groups</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="group_menu" name="Access and Rights"
+                  parent="main_sms_menu" sequence="3"/>
+        <menuitem id="contact_menu" name="Users Groups"
+                  parent="group_menu"
+                  action="group_list_action"/>
+    </data>
+</odoo>

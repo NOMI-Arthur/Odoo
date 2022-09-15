@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+
+    <!--Explicit calendar view for planning Matrix movements-->
+        <record id="matrix__telecoms__sms_planning_technique_calendar" model="ir.ui.view">
+            <field name="name">matrix__telecoms__sms.planning_technique.calendar</field>
+            <field name="model">matrix__telecoms__sms.vt</field>
+            <field name="arch" type="xml">
+                <calendar string="planifier" date_start="start_date" color="client_id" date_stop="end_date">
+                    <field name="nom"/>
+                </calendar>
+            </field>
+        </record>
+    <!--End of calendar view-->
+
+    <!--Actions-->
+        <record id="matrix__telecoms__sms_planning_technique_action" model="ir.actions.act_window">
+            <field name="name">Matrix Télécoms visites technique</field>
+            <field name="res_model">matrix__telecoms__sms.vt</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar</field>
+        </record>
+    <!--End of action-->
+        <menuitem
+            id="technique_calendar_menu"
+            name="Planning de Visite Technique"
+            action="matrix__telecoms__sms_planning_technique_action"
+            parent="calendar_menu_root"
+            sequence="2"/>
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<odoo>
+<data>
+    <report
+        id="report_account_solde"
+        model="matrix__telecoms__sms.account"
+        string="solde du compte"
+        name="matrix__telecoms__sms.report_account_solde_view"
+        file="matrix__telecoms__sms.report_account_solde"
+        report_type="qweb-pdf" />
+
+    <template id="report_account_solde_view">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2 style="font-size: 50px;">Etat de synthèse du compte du client chez <div style="color: green;">MATRIX télécoms</div></h2>
+                        <hr/>
+                        A Matrix Télécoms, chacun d'entre vous est un grand client. 
+                        <br/>
+                        Voila pourquoi la gestion de nos transaction financière est crucial pour nous. <b style="font-size:1.5em;"> NOMI Ph.D</b>, Etudiant d'ISTAG
+                        <hr/>
+                        <center>     
+                            <div style="height: 275px;width:750px;background-color:#c3f2c4;border:1px solid white;display:block;"> 
+                                
+                                <div style="float:left;height: 20%;margin:15px;width:20%;background-color:#4d694d;border:1px solid black;border-radius:3px;"><label for="">Associé au compte</label><span t-field="doc.compte_ids" style="font-family: Century; font-size:20px"/><hr/></div>
+                              
+                                <div style="float:right;height: 20%;margin:15px;width:20%;background-color:#4d694d;border:1px solid black;border-radius:3px;"><label for="">Entrée mensuel</label><span t-field="doc.montant" style="font-family: Times New Roman; font-size:20px; color:green;"/><hr/></div>
+                                
+                                <div style="float:left;height: 20%;margin:15px;width:20%;background-color:#4d694d;border:1px solid black;border-radius:3px;"><label for="">Dépense du jour</label><span t-field="doc.mouvement" style="font-family: Century; font-size:20px; color:red;"/><hr/></div>
+                               
+                                <div style="float:right;height: 20%;margin:15px;width:20%;background-color:#4d694d;border:1px solid black;border-radius:3px;"><label for="">Date</label><span t-field="doc.write_date" style="font-family: Century; font-size:20px;"/><hr/></div>
+                          
+                                <div style="float:left;height: 20%;margin:15px;width:20%;background-color:#4d694d;border:1px solid black;border-radius:3px;"><label for="">L'éditeur</label><span t-field="doc.write_uid" style="font-family: Century; font-size:20px;"/><hr/></div>
+                            </div>
+                         </center>
+                         <hr/>
+                         <h4>Signatures du:</h4>
+                         <div style="display: block;margin:100px;"><img src="img/matrix.png" alt="Le responsble financier"  height="130" width="200"/><img src="img/nomi.jpg" alt="Le client" height="130" width="200"/></div>
+                         <hr/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</data>
+</odoo>

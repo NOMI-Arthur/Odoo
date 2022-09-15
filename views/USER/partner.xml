@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+    <data>
+        <!-- Add instructor field to existing view -->
+         <record model="ir.ui.view" id="client_instructeur_form_view">
+            <field name="name">client information</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Sessions">
+                        <group>
+                            
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="partner_list_action">
+            <field name="name">Add option</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,form</field>
+        </record>
+        <menuitem
+            id="main_sms_menu"
+            name="Matrix Télécoms's SMS"/>
+        <menuitem id="information_menu" name="Partners/Client"
+                  parent="main_sms_menu"/>
+        <menuitem id="contact_menu" name="Partners Information"
+                  parent="information_menu"
+                  action="partner_list_action"/>
+    </data>
+</odoo>
